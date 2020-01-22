@@ -17,7 +17,7 @@
     "memoryInGb": "4",
     "containerGroupName": "createshare-containerinstance",
     "containerName": "createshare",
-    "count": "4"
+    "count": 4
   },
   "resources": [
 
