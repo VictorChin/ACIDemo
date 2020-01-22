@@ -13,22 +13,23 @@
   },
   "variables": {
     "image": "chinzilla/helloworld",
-    "cpuCores": "4",
-    "memoryInGb": "8",
+    "cpuCores": "2",
+    "memoryInGb": "4",
     "containerGroupName": "createshare-containerinstance",
-    "containerName": "createshare"
+    "containerName": "createshare",
+    "count": "4"
   },
   "resources": [
 
     {
-      "name": "[variables('containerGroupName')]",
+      "name": "[ concat(copyIndex(), uniqueString(resourceGroup().id)) ]",
       "type": "Microsoft.ContainerInstance/containerGroups",
       "apiVersion": "2018-10-01",
       "location": "[resourceGroup().location]",
       "properties": {
         "containers": [
           {
-            "name": "[variables('containerName')]",
+            "name": "[concat(copyIndex(),variables('containerName'))]",
             "properties": {
               "image": "[variables('image')]",
               "resources": {
@@ -42,6 +43,10 @@
         ],
         "osType": "Linux",
         "restartPolicy": "OnFailure"
+      },
+      "copy": {
+        "name": "storagecopy",
+        "count": "[variables('count')]"
       }
     }
   ],
