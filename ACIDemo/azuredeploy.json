@@ -8,7 +8,10 @@
       "defaultValue": "[resourceGroup().location]",
       "metadata": {
         "description": "Location for all resources."
-      }
+      },
+    "count" : {
+    "type" : "int",
+    "defaultValue": "2"
     }
   },
   "variables": {
@@ -17,7 +20,7 @@
     "memoryInGb": "4",
     "containerGroupName": "createshare-containerinstance",
     "containerName": "createshare",
-    "count": 30
+    "count": "[parameters('count')]"
   },
   "resources": [
 
