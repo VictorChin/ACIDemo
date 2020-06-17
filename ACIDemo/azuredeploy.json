@@ -8,7 +8,8 @@
       "defaultValue": "[resourceGroup().location]",
       "metadata": {
         "description": "Location for all resources."
-      },
+      }
+    },
     "count" : {
     "type" : "int",
     "defaultValue": "2"
