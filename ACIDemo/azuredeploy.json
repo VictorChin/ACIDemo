@@ -17,8 +17,8 @@
   },
   "variables": {
     "image": "chinzilla/helloworld",
-    "cpuCores": "2",
-    "memoryInGb": "4",
+    "cpuCores": "4",
+    "memoryInGb": "8",
     "containerGroupName": "createshare-containerinstance",
     "containerName": "createshare",
     "count": "[parameters('count')]"
