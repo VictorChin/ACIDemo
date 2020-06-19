@@ -18,7 +18,7 @@
   "variables": {
     "image": "chinzilla/helloworld",
     "cpuCores": "4",
-    "memoryInGb": "8",
+    "memoryInGb": "4",
     "containerGroupName": "createshare-containerinstance",
     "containerName": "createshare",
     "count": "[parameters('count')]"
@@ -26,7 +26,7 @@
   "resources": [
 
     {
-      "name": "[ concat(copyIndex(), uniqueString(resourceGroup().id)) ]",
+      "name": "[ uniqueString(resourceGroup().id,  concat(copyIndex())) ]",
       "type": "Microsoft.ContainerInstance/containerGroups",
       "apiVersion": "2018-10-01",
       "location": "[resourceGroup().location]",
